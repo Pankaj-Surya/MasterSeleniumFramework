@@ -1,22 +1,25 @@
 package com.taf.testcases;
-
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginpageTests {
+import com.taf.constants.FrameworkConstants;
+
+public class LoginpageTests extends BaseTest {
+	
+
 
 	@Test
 	public void test1() {
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/test/resources/executables/chromedriver.exe");
-	    WebDriver driver = new ChromeDriver();
-	    driver.get("https://www.google.com/"); //Ctrl+Shift+O -> Auto Import
+	  driver.findElement(By.name("q")).sendKeys("Automatiom",Keys.ENTER);
 	}
 	
 	@Test
 	public void test2() {
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/test/resources/executables/chromedriver.exe");
-	    WebDriver driver = new ChromeDriver();
-	    driver.get("https://www.facebook.com/"); //Ctrl+Shift+O -> Auto Import
+		driver.findElement(By.name("q")).sendKeys("Automation Testing",Keys.ENTER); //Ctrl+Shift+O -> Auto Import
 	}
 }

@@ -4,6 +4,7 @@
   <test thread-count="1" name="Test">
     <classes>
       <class name="com.taf.testcases.LoginpageTests"/>
+      <class name="com.taf.testcases.HomepageTests"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
