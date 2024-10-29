@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
-import com.taf.driver.Driver;
+import com.taf.driver.DriverManager;
 
 public final class HomepageTests extends BaseTest {
 	
@@ -14,8 +14,8 @@ public final class HomepageTests extends BaseTest {
 	}
 	
 	@Test
-	public void test1() {
-		Driver.driver.findElement(By.name("q")).sendKeys("Automation My Test",Keys.ENTER); //Ctrl+Shift+O -> Auto Import
+	public void test2() {
+		DriverManager.getDriver().findElement(By.name("q")).sendKeys("Automation My Test Home",Keys.ENTER); //Ctrl+Shift+O -> Auto Import
 	}
 	
 }

@@ -10,23 +10,34 @@ import com.taf.constants.FrameworkConstants;
 
 public class Driver {
 
-	public static WebDriver driver;
+	private Driver() {
+		
+	}
+	
+	private static WebDriver driver;
+	
+	
+
 	
 	
 	public static void initDriver() {
 		if(Objects.isNull(driver)) {  // driver==null
 			System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromeDriverPath());
 		    driver = new ChromeDriver();
-		    driver.get("https://www.google.com/"); //Ctrl+Shift+O -> Auto Import	
+		    
+		    // Using Threadlocal methods
+		    DriverManager.setDriver(driver);
+		    DriverManager.getDriver().get("https://www.google.com/"); //Ctrl+Shift+O -> Auto Import	
 		}
 		
 	}
 	
 	
 	public static void quitDriver() {
-		if(Objects.nonNull(driver)) { //driver != null
+		if(Objects.nonNull(DriverManager.getDriver())) { //driver != null
 			driver.quit();	
-			driver=null;
+//			driver=null;
+			DriverManager.unload();
 		}
 		
 	}
