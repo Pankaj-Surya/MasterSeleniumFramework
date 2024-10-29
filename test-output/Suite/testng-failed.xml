@@ -3,6 +3,14 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" parallel="methods" name="Test(failed)">
     <classes>
+      <class name="com.taf.testcases.LoginpageTests">
+        <methods>
+          <include name="test1"/>
+          <include name="setup"/>
+          <include name="test3"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.taf.testcases.LoginpageTests -->
       <class name="com.taf.testcases.HomepageTests">
         <methods>
           <include name="test2"/>

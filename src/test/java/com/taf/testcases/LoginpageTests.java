@@ -15,13 +15,11 @@ public final class LoginpageTests extends BaseTest {
 		// Two instances of driver
 		// To Avoid duplicate driver we set driver==null in Driver class
 		//Driver.initDriver();
-		DriverManager.getDriver().findElement(By.name("q")).sendKeys("Automation My Test Login", Keys.ENTER);
+		DriverManager.getDriver().findElement(By.name("q")).sendKeys("Test Login-1", Keys.ENTER);
 	}
 
-//	@Test
-//	public void test2() {
-//		
-//		Driver.driver.findElement(By.name("q")).sendKeys("Automation Testing", Keys.ENTER); // Ctrl+Shift+O -> Auto
-//																							// Import
-//	}
+	@Test
+	public void test3() {
+		DriverManager.getDriver().findElement(By.name("q")).sendKeys("Test Login-2", Keys.ENTER);// Ctrl+Shift+O -> AutoImport
+	}
 }

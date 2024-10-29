@@ -14,19 +14,22 @@ public class Driver {
 		
 	}
 	
-	private static WebDriver driver;
+	//private static WebDriver driver;
 	
 	
 
 	
 	
 	public static void initDriver() {
-		if(Objects.isNull(driver)) {  // driver==null
+		System.out.println(Thread.currentThread()+"  "+DriverManager.getDriver());
+		if(Objects.isNull(DriverManager.getDriver())) {  // driver==null
 			System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromeDriverPath());
-		    driver = new ChromeDriver();
-		    
-		    // Using Threadlocal methods
-		    DriverManager.setDriver(driver);
+		    // driver = new ChromeDriver();
+			// DriverManager.setDriver(driver);
+		  
+			// Using Threadlocal methods
+			// solved - facing issue when 2 Login and 1 Home Test It is failing 1 test  
+			DriverManager.setDriver(new ChromeDriver()); 
 		    DriverManager.getDriver().get("https://www.google.com/"); //Ctrl+Shift+O -> Auto Import	
 		}
 		
@@ -35,7 +38,7 @@ public class Driver {
 	
 	public static void quitDriver() {
 		if(Objects.nonNull(DriverManager.getDriver())) { //driver != null
-			driver.quit();	
+			DriverManager.getDriver().quit();	
 //			driver=null;
 			DriverManager.unload();
 		}

@@ -4,19 +4,19 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import com.taf.driver.Driver;
 
-public  class BaseTest {
+public class BaseTest {
 
 	protected BaseTest() {
 
 	}
 
 	@BeforeMethod
-	public void setup() {
+	protected void setup() {
 		Driver.initDriver();
 	}
 
 	@AfterMethod
-	public void tearDown() {
-		//Driver.quitDriver();
+	protected void tearDown() {
+		Driver.quitDriver();
 	}
 }
